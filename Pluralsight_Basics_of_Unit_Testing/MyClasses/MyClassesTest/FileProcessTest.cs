@@ -12,8 +12,10 @@ namespace MyClassesTest
     public class FileProcessTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void FileNameDoesExists()
         {
+            // Assert.Inclusive() is like a todo saying hey we need to write testcase here.
+            Assert.Inconclusive();
         }
     }
 }
