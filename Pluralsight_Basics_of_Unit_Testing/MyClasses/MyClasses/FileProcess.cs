@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyClasses
 {
-    public class Class1
+    public class FileProcess
     {
     }
 }
