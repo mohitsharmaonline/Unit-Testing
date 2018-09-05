@@ -18,6 +18,13 @@ namespace MyClassesTest
             Assert.Inconclusive();
         }
 
+        [TestMethod]
+        public void FileNameDoesNotExists()
+        {
+            // Assert.Inclusive() is like a todo saying hey we need to write testcase here.
+            Assert.Inconclusive();
+        }
+
         // We want to pass an empty file name and get an exception back.
         [TestMethod]
         public void FileNameNullOrEmpty_ThrowsArgumentNullException()
