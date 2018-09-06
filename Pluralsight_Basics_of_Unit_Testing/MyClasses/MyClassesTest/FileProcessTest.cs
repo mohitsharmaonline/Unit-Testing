@@ -15,16 +15,7 @@ namespace MyClassesTest
         [TestMethod]
         public void FileNameDoesExists()
         {
-            // Arrange
-            FileProcess fp = new FileProcess();
-
-            // Acting
-            bool fromCall = fp.FileExists(@"C:\Windows\regedit.exe");
-
-            // Assert
-            Assert.IsTrue(fromCall);
-
-            // Refer rtf doc Your_first_unit_test_arrange_act_assert
+            Assert.Inconclusive();
 
             
         }
@@ -32,14 +23,7 @@ namespace MyClassesTest
         [TestMethod]
         public void FileNameDoesNotExists()
         {
-            // Arrange
-            FileProcess fp = new FileProcess();
-
-            // Acting
-            bool fromCall = fp.FileExists(@"C:\BadFileName.bad");
-
-            // Assert
-            Assert.IsFalse(fromCall);
+            Assert.Inconclusive();
         }
 
         // We want to pass an empty file name and get an exception back.
@@ -52,6 +36,24 @@ namespace MyClassesTest
             fp.FileExists("");
 
             // Refer rtf doc Your_first_unit_test_arrange_act_assert_1
+        }
+
+        [TestMethod]
+        public void FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch()
+        {
+            FileProcess fp = new FileProcess();
+
+            try
+            {
+                fp.FileExists("");
+            }
+            catch(ArgumentNullException)
+            {
+                // The test was a success
+                return;
+            }
+
+            Assert.Fail("Call to FileExists did not throw an ArgumentNullException");
         }
     }
 }
