@@ -44,10 +44,12 @@ namespace MyClassesTest
 
         // We want to pass an empty file name and get an exception back.
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void FileNameNullOrEmpty_ThrowsArgumentNullException()
         {
-            // Assert.Inclusive() is like a todo saying hey we need to write testcase here.
-            Assert.Inconclusive();
+            FileProcess fp = new FileProcess();
+
+            fp.FileExists("");
         }
     }
 }
