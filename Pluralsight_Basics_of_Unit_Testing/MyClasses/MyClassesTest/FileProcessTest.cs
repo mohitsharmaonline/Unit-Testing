@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MyClasses;
 /******************************************************************
- * Unit test is nothing more than a class with methods
- * ***************************************************************/
+* Unit test is nothing more than a class with methods
+* ***************************************************************/
 
 namespace MyClassesTest
 {
@@ -14,8 +15,18 @@ namespace MyClassesTest
         [TestMethod]
         public void FileNameDoesExists()
         {
-            // Assert.Inclusive() is like a todo saying hey we need to write testcase here.
-            Assert.Inconclusive();
+            // Arrange
+            FileProcess fp = new FileProcess();
+
+            // Acting
+            bool fromCall = fp.FileExists(@"C:\Windows\regedit.exe");
+
+            // Assert
+            Assert.IsTrue(fromCall);
+
+            // Refer rtf doc Your_first_unit_test_arrange_act_assert
+
+            
         }
 
         [TestMethod]
