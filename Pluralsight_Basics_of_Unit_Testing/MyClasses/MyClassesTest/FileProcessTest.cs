@@ -32,8 +32,14 @@ namespace MyClassesTest
         [TestMethod]
         public void FileNameDoesNotExists()
         {
-            // Assert.Inclusive() is like a todo saying hey we need to write testcase here.
-            Assert.Inconclusive();
+            // Arrange
+            FileProcess fp = new FileProcess();
+
+            // Acting
+            bool fromCall = fp.FileExists(@"C:\BadFileName.bad");
+
+            // Assert
+            Assert.IsFalse(fromCall);
         }
 
         // We want to pass an empty file name and get an exception back.
