@@ -17,6 +17,10 @@ namespace MyClassesTest
         private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
         private string _GoodFileName;
 
+        // It could be a little confusing, but the name of the
+        // property here really needs to be TestContext only.
+        public TestContext TestContext { get; set; }
+
         [TestMethod]
         public void FileNameDoesExists()
         {
