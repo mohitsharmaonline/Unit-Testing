@@ -12,18 +12,28 @@ namespace MyClassesTest
     [TestClass]
     public class FileProcessTest
     {
+        private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
+        private const string GOOD_FILE_NAME = @"C:\Windows\Regedit.exe";
         [TestMethod]
         public void FileNameDoesExists()
         {
-            Assert.Inconclusive();
+            FileProcess fp = new FileProcess();
+            bool fromCall;
 
-            
+            fromCall = fp.FileExists(GOOD_FILE_NAME);
+
+            Assert.IsFalse(fromCall);
         }
 
         [TestMethod]
         public void FileNameDoesNotExists()
         {
-            Assert.Inconclusive();
+            FileProcess fp = new FileProcess();
+            bool fromCall;
+
+            fromCall = fp.FileExists(BAD_FILE_NAME);
+
+            Assert.IsFalse(fromCall);
         }
 
         // We want to pass an empty file name and get an exception back.
