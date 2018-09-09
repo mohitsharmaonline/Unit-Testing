@@ -28,10 +28,15 @@ namespace MyClassesTest
             bool fromCall;
 
             SetGoodFileName();
+            TestContext.WriteLine($"Creating the file {_GoodFileName}");
             File.AppendAllText(_GoodFileName, "Some Text");
+            TestContext.WriteLine($"Testing the file {_GoodFileName}");
             fromCall = fp.FileExists(_GoodFileName);
+            TestContext.WriteLine($"Deleting the file {_GoodFileName}");
             File.Delete(_GoodFileName);
             Assert.IsTrue(fromCall);
+
+            // Move to rtf file Demo_using_testcontext
         }
 
         [TestMethod]
