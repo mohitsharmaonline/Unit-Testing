@@ -19,7 +19,7 @@ namespace MyClassesTest
         {
             FileProcess fp = new FileProcess();
             bool fromCall;
-
+             
             fromCall = fp.FileExists(GOOD_FILE_NAME);
 
             Assert.IsFalse(fromCall);
