@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyClasses;
+using System.Configuration;
+using System.IO;
 /******************************************************************
 * Unit test is nothing more than a class with methods
 * ***************************************************************/
@@ -13,16 +15,19 @@ namespace MyClassesTest
     public class FileProcessTest
     {
         private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
-        private const string GOOD_FILE_NAME = @"C:\Windows\Regedit.exe";
+        private string _GoodFileName;
+
         [TestMethod]
         public void FileNameDoesExists()
         {
             FileProcess fp = new FileProcess();
             bool fromCall;
-             
-            fromCall = fp.FileExists(GOOD_FILE_NAME);
 
-            Assert.IsFalse(fromCall);
+            SetGoodFileName();
+            File.AppendAllText(_GoodFileName, "Some Text");
+            fromCall = fp.FileExists(_GoodFileName);
+            File.Delete(_GoodFileName);
+            Assert.IsTrue(fromCall);
         }
 
         [TestMethod]
@@ -64,6 +69,21 @@ namespace MyClassesTest
             }
 
             Assert.Fail("Call to FileExists did not throw an ArgumentNullException");
+        }
+
+        /*************************************************************************
+         * This is a regular methods as compared to test method. You can have 
+         * them too. They act as support methods only for main TestMethods 
+         * that are used by testing framework.
+         * **********************************************************************/
+        public void SetGoodFileName()
+        {
+            _GoodFileName = ConfigurationManager.AppSettings["GoodFileName"];
+
+            if(_GoodFileName.Contains("[AppPath]"))
+            {
+                _GoodFileName = _GoodFileName.Replace("[AppPath]", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            }
         }
     }
 }
