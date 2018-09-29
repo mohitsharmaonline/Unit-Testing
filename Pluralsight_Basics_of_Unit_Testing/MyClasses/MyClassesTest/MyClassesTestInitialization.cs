@@ -16,5 +16,12 @@ namespace MyClassesTest
             tc.WriteLine("In the Assembly Initialize method.");
             // TODO: Create resources needed for your tests.
         }
+
+        // this one does not requires a TestContext        
+        [AssemblyCleanup]
+        public static void AssemblyCleanup()
+        {
+            // TODO: clean up any resources used by your tests.
+        }
     }
 }
