@@ -8,12 +8,13 @@ namespace MyClassesTest
     [TestClass]
     public class MyClassesTestInitialization
     {
-        [TestMethod]
-        public void TestMethod1()
+        // When unit testing framework calls this method, it passes an
+        // instance of test context class.
+        [AssemblyInitialize]
+        public static void AssemblyInitialize(TestContext tc)
         {
-            //
-            // TODO: Add test logic here
-            //
+            tc.WriteLine("In the Assembly Initialize method.");
+            // TODO: Create resources needed for your tests.
         }
     }
 }
