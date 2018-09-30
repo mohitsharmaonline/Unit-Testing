@@ -88,7 +88,7 @@ namespace MyClassesTest
         public void FileNameDoesNotExists()
         {
             FileProcess fp = new FileProcess();
-            bool fromCall;
+            bool fromCall;  
 
             fromCall = fp.FileExists(BAD_FILE_NAME);
 
