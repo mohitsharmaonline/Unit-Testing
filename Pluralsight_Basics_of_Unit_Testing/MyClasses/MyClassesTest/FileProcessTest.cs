@@ -41,7 +41,8 @@ namespace MyClassesTest
         {
             if(TestContext.TestName == nameof(FileNameDoesExists))
             {
-                if(!string.IsNullOrWhiteSpace(_GoodFileName))
+                SetGoodFileName();
+                if (!string.IsNullOrWhiteSpace(_GoodFileName))
                 {
                     TestContext.WriteLine($"Creating File: {_GoodFileName}");
                     File.AppendAllText(_GoodFileName, "Some Text");
@@ -71,8 +72,7 @@ namespace MyClassesTest
         {
             FileProcess fp = new FileProcess();
             bool fromCall;
-
-            SetGoodFileName();
+            
             //TestContext.WriteLine($"Creating the file {_GoodFileName}");
             //File.AppendAllText(_GoodFileName, "Some Text");
             TestContext.WriteLine($"Testing the file {_GoodFileName}");
