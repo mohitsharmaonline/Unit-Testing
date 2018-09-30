@@ -31,6 +31,16 @@ namespace MyClassesTest
         }
         #endregion
 
+        #region Test Initialization and cleanup
+        // This would not have static keyword, because this method
+        // does not run once only, it runs every time the test is run.
+        [TestInitialize]
+        public void TestInitialize()
+        {
+
+        }
+        #endregion
+
         // It could be a little confusing, but the name of the
         // property here really needs to be TestContext only.
         public TestContext TestContext { get; set; }
