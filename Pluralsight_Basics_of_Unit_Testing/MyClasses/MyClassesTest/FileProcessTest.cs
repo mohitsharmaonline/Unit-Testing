@@ -17,6 +17,20 @@ namespace MyClassesTest
         private const string BAD_FILE_NAME = @"C:\BadFileName.bad";
         private string _GoodFileName;
 
+        #region Class Initialization and Ceanup
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext tc)
+        {
+            tc.WriteLine("In the class Initialize.");
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            // TODO: cleanup of resources.
+        }
+        #endregion
+
         // It could be a little confusing, but the name of the
         // property here really needs to be TestContext only.
         public TestContext TestContext { get; set; }
