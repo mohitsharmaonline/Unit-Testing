@@ -34,10 +34,31 @@ namespace MyClassesTest
         #region Test Initialization and cleanup
         // This would not have static keyword, because this method
         // does not run once only, it runs every time the test is run.
+        // We don't need to pass test context in this method, as these
+        // methods by default have access to Testcontext object.
         [TestInitialize]
         public void TestInitialize()
         {
+            if(TestContext.TestName == nameof(FileNameDoesExists))
+            {
+                if(!string.IsNullOrWhiteSpace(_GoodFileName))
+                {
+                    TestContext.WriteLine($"Creating File: {_GoodFileName}");
+                    File.AppendAllText(_GoodFileName, "Some Text");
+                }
+            }
+        }
 
+        public void TestCleanup()
+        {
+            if (TestContext.TestName == nameof(FileNameDoesExists))
+            {
+                if (!string.IsNullOrWhiteSpace(_GoodFileName))
+                {
+                    TestContext.WriteLine($"Delting File: {_GoodFileName}");
+                    File.Delete(_GoodFileName);
+                }
+            }
         }
         #endregion
 
@@ -52,12 +73,12 @@ namespace MyClassesTest
             bool fromCall;
 
             SetGoodFileName();
-            TestContext.WriteLine($"Creating the file {_GoodFileName}");
-            File.AppendAllText(_GoodFileName, "Some Text");
+            //TestContext.WriteLine($"Creating the file {_GoodFileName}");
+            //File.AppendAllText(_GoodFileName, "Some Text");
             TestContext.WriteLine($"Testing the file {_GoodFileName}");
             fromCall = fp.FileExists(_GoodFileName);
-            TestContext.WriteLine($"Deleting the file {_GoodFileName}");
-            File.Delete(_GoodFileName);
+            //TestContext.WriteLine($"Deleting the file {_GoodFileName}");
+            //File.Delete(_GoodFileName);
             Assert.IsTrue(fromCall);
 
             // Move to rtf file Demo_using_testcontext
