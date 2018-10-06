@@ -88,8 +88,29 @@ namespace MyClassesTest
             // Move to rtf file Demo_using_testcontext
         }
 
+        private const string FILE_NAME = @"FileToDeploy.txt";
+
         [TestMethod]
-        [Timeout(3000)] // 3 second
+        [Owner("MohitS")]
+        [DeploymentItem(FILE_NAME)]
+        public void FileNameDoesExistsUsingDeploymentItem()
+        {
+            FileProcess fp = new FileProcess();
+            string fileName;
+            bool fromCall;
+
+            fileName = TestContext.DeploymentDirectory + @"\" + FILE_NAME;
+            TestContext.WriteLine($"Checking File: {fileName}");
+
+            fromCall = fp.FileExists(fileName);
+
+            Assert.IsTrue(fromCall);
+        }
+
+
+
+        [TestMethod]
+        [Timeout(5000)] // 3 second
         public void SimulateTimeout()
         {
             System.Threading.Thread.Sleep(4000); // Sleep for 4 second.
