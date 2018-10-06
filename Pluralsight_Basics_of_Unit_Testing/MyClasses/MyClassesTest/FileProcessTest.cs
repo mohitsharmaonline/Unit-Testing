@@ -89,6 +89,13 @@ namespace MyClassesTest
         }
 
         [TestMethod]
+        [Timeout(3000)] // 3 second
+        public void SimulateTimeout()
+        {
+            System.Threading.Thread.Sleep(4000); // Sleep for 4 second.
+        }
+
+        [TestMethod]
         [Description("Check to see if file does not exist.")]
         [Owner("MohitS")]
         [Priority(0)]
