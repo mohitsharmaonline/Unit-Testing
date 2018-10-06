@@ -69,6 +69,7 @@ namespace MyClassesTest
 
         [TestMethod]
         [Description("Check to see if file does exist.")]
+        [Owner("MohitS")]
         public void FileNameDoesExists()
         {
             FileProcess fp = new FileProcess();
@@ -87,6 +88,7 @@ namespace MyClassesTest
 
         [TestMethod]
         [Description("Check to see if file does not exist.")]
+        [Owner("MohitS")]
         public void FileNameDoesNotExists()
         {
             FileProcess fp = new FileProcess();
@@ -100,6 +102,7 @@ namespace MyClassesTest
         // We want to pass an empty file name and get an exception back.
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
+        [Owner("JohnK")]
         public void FileNameNullOrEmpty_ThrowsArgumentNullException()
         {
             FileProcess fp = new FileProcess();
@@ -110,6 +113,7 @@ namespace MyClassesTest
         }
 
         [TestMethod]
+        [Owner("JimR")]
         public void FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch()
         {
             FileProcess fp = new FileProcess();
