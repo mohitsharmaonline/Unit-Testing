@@ -68,6 +68,7 @@ namespace MyClassesTest
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [Description("Check to see if file does exist.")]
         public void FileNameDoesExists()
         {
             FileProcess fp = new FileProcess();
@@ -85,6 +86,7 @@ namespace MyClassesTest
         }
 
         [TestMethod]
+        [Description("Check to see if file does not exist.")]
         public void FileNameDoesNotExists()
         {
             FileProcess fp = new FileProcess();
