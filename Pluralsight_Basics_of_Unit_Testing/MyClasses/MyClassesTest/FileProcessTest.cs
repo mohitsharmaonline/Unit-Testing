@@ -128,6 +128,18 @@ namespace MyClassesTest
 
         }
 
+        [TestMethod]
+        public void FileNameDoesExistsMessageWithFormatting()
+        {
+            FileProcess fp = new FileProcess();
+            bool fromCall;
+
+            fromCall = fp.FileExists(_GoodFileName);
+
+            Assert.IsFalse(fromCall, "File '{0}' Does NOT Exist.", _GoodFileName);
+
+        }
+
 
         [TestMethod]
         [Description("Check to see if file does not exist.")]
