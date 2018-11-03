@@ -11,10 +11,11 @@ namespace MyClassesTest
         public void AreEqualTest()
         {
             string str1 = "Paul";
-            string str2 = "Paul";
+            string str2 = "paul";
 
             Assert.AreEqual(str1, str2);
         }
+
 
         #endregion
     }
