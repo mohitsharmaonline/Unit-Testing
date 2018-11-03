@@ -27,6 +27,16 @@ namespace MyClassesTest
             Assert.AreEqual(str1, str2, false);
         }
 
+        [TestMethod]
+        [Owner("JohnK")]
+        public void AreNotEqualTest()
+        {
+            string str1 = "Paul";
+            string str2 = "John";
+
+            Assert.AreNotEqual(str1, str2);
+        }
+
 
         #endregion
     }
