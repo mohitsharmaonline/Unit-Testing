@@ -36,8 +36,27 @@ namespace MyClassesTest
 
             Assert.AreNotEqual(str1, str2);
         }
-
-
+        
         #endregion
+
+        /***************************************************************
+         * AreSame, AreNotSame: used to check if object variables 
+         * points to same object.
+         * 
+         * IsInstanceofType, IsNotInstanceOfType: to check if object
+         * variable is of specific type.
+         * 
+         * IsNull, IsNotNull: to check for null or not null.
+         * ***************************************************************/
+
+        [TestMethod]
+        [Owner("JohnK")]
+        public void AreSameTest()
+        {
+            FileProcessTest x = new FileProcessTest();
+            FileProcessTest y = x;
+
+            Assert.AreSame(x, y);
+        }
     }
 }
