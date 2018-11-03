@@ -77,11 +77,23 @@ namespace MyClassesTest
             PersonManager mgr = new PersonManager();
             Person per;
 
-            per = mgr.CreatePerson("Paul", "Sheriff", false);
+            per = mgr.CreatePerson("Paul", "Sheriff", true);
 
             Assert.IsInstanceOfType(per, typeof(Supervisor));
         }
 
+        [TestMethod]
+        [Owner("JohnK")]
+        public void IsNullTest()
+        {
+            PersonManager mgr = new PersonManager();
+            Person per;
+
+            per = mgr.CreatePerson(first: "", last: "Sheriff", isSupervisor: true);
+
+            Assert.IsNull(per);
+
+        }
 
     }
 }
