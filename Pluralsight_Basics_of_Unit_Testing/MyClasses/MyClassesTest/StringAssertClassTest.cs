@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text.RegularExpressions;
 
 namespace MyClassesTest
 {
@@ -23,6 +24,22 @@ namespace MyClassesTest
             string str2 = "All Lower";
 
             StringAssert.StartsWith(value: str1, substring: str2);
+        }
+
+        [TestMethod]
+        public void IsAllLowercaseTest()
+        {
+            Regex r = new Regex(@"^([^A-Z])+$");
+
+            StringAssert.Matches(value: "all lower case", pattern: r);
+        }
+
+        [TestMethod]
+        public void IsNotAllLowerCaseTest()
+        {
+            Regex r = new Regex(@"^([^A-Z])+$");
+
+            StringAssert.DoesNotMatch(value: "All lower case", pattern: r);
         }
     }
 }
