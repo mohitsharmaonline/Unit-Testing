@@ -15,5 +15,14 @@ namespace MyClassesTest
 
             StringAssert.Contains(value: str1, substring: str2);
         }
+
+        [TestMethod]
+        public void StartsWithTest()
+        {
+            string str1 = "All Lower Case";
+            string str2 = "All Lower";
+
+            StringAssert.StartsWith(value: str1, substring: str2);
+        }
     }
 }
