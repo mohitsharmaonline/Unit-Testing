@@ -39,7 +39,7 @@ namespace MyClassesTest
         [TestInitialize]
         public void TestInitialize()
         {
-            if(TestContext.TestName == nameof(FileNameDoesExists))
+            if(TestContext.TestName.StartsWith(nameof(FileNameDoesExists)))
             {
                 SetGoodFileName();
                 if (!string.IsNullOrWhiteSpace(_GoodFileName))
@@ -52,7 +52,7 @@ namespace MyClassesTest
 
         public void TestCleanup()
         {
-            if (TestContext.TestName == nameof(FileNameDoesExists))
+            if (TestContext.TestName.StartsWith(nameof(FileNameDoesExists)))
             {
                 if (!string.IsNullOrWhiteSpace(_GoodFileName))
                 {
@@ -115,6 +115,19 @@ namespace MyClassesTest
         {
             System.Threading.Thread.Sleep(4000); // Sleep for 4 second.
         }
+
+        [TestMethod]
+        public void FileNameDoesExistsSimpleMessage()
+        {
+            FileProcess fp = new FileProcess();
+            bool fromCall;
+
+            fromCall = fp.FileExists(_GoodFileName);
+
+            Assert.IsFalse(fromCall, "File Does NOT Exist.");
+
+        }
+
 
         [TestMethod]
         [Description("Check to see if file does not exist.")]
