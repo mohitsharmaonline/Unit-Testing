@@ -58,5 +58,17 @@ namespace MyClassesTest
 
             Assert.AreSame(x, y);
         }
+
+        [TestMethod]
+        [Owner("JohnK")]
+        public void AreNotSameTest()
+        {
+            FileProcessTest x = new FileProcessTest();
+            FileProcessTest y = new FileProcessTest();
+
+            Assert.AreNotSame(x, y);
+        }
+
+
     }
 }
