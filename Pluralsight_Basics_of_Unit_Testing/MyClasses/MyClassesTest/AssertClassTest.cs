@@ -95,5 +95,20 @@ namespace MyClassesTest
 
         }
 
+        /*******************************************************************************
+         * StringAssert Class:
+         * 
+         * Regex related methods: 
+         * 1) Matches
+         * 2) DoesNotMatch
+         * 
+         * Contains:
+         * 1) Contains
+         * 
+         * Starts/ends with:
+         * 1) StartsWith
+         * 2) EndsWith
+         * ***************************************************************************/
+
     }
 }
