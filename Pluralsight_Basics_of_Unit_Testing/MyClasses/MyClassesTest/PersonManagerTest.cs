@@ -31,5 +31,16 @@ namespace MyClassesTest
             CollectionAssert.AllItemsAreInstancesOfType(collection: employees,
                 expectedType: typeof(Employee));
         }
+
+        [TestMethod]
+        public void IsCollectionOfTypeSupervisorsAndEmployeeTest()
+        {
+            PersonManager mgr = new PersonManager();
+            List<Person> peopleActual = new List<Person>();
+
+            peopleActual = mgr.GetSupervisorsAndEmployees();
+
+            CollectionAssert.AllItemsAreNotNull(peopleActual);
+        }
     }
 }
