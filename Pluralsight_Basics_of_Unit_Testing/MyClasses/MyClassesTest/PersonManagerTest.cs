@@ -42,5 +42,22 @@ namespace MyClassesTest
 
             CollectionAssert.AllItemsAreNotNull(peopleActual);
         }
+
+        [TestMethod]
+        [Owner("JohnK")]
+        public void DoEmployeesExistsTest()
+        {
+            Supervisor super = new Supervisor();
+
+            super.Employees = new List<Employee>();
+
+            super.Employees.Add(new Employee()
+            {
+                FirstName = "Jim",
+                LastName = "Ruhl"
+            });
+
+            Assert.IsTrue(super.Employees.Count > 0);
+        }
     }
 }
