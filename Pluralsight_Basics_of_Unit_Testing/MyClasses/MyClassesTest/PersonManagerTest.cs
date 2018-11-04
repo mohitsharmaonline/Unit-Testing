@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyClasses.PersonClasses;
+using System.Collections.Generic;
 
 namespace MyClassesTest
 {
@@ -17,6 +18,18 @@ namespace MyClassesTest
 
             Assert.IsInstanceOfType(value: per, expectedType: typeof(Employee));
 
+        }
+
+        [TestMethod]
+        public void GetEmployeesTest()
+        {
+            PersonManager mgr = new PersonManager();
+            List<Person> employees;
+
+            employees = mgr.GetEmployees();
+
+            CollectionAssert.AllItemsAreInstancesOfType(collection: employees,
+                expectedType: typeof(Employee));
         }
     }
 }
