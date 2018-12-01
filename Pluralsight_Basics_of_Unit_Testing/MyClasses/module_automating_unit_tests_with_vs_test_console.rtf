@@ -1,0 +1,339 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 VSTest.Console.exe:\par
+1) Can be run from developer command prompt.\par
+2) Log to Console, TFS or .trx file\par
+3) we can run all tests\par
+4) we can run tests starting with a specific string\par
+5) We can run tests filetered by Priority, Name or TestCategory.\par
+How to open it?\par
+locate 'Developer Command Prompt for VS 2017' and open it.\par
+*****************************************************************************\par
+**********************************************************************\par
+** Visual Studio 2017 Developer Command Prompt v15.7.5\par
+** Copyright (c) 2017 Microsoft Corporation\par
+**********************************************************************\par
+\par
+C:\\Program Files\\Microsoft Visual Studio\\2017\\Enterprise>cd C:\\Users\\mohit\\Docum\par
+ents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClasses\\MyClassesTest\\bin\par
+\\Debug\par
+\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>\par
+****************************************************************************\par
+you can see "MyClassesTest.dll" in this folder. this is the one we want to interact with.\par
+you can run tests that are there in this dll by using command "vstest.console" with the name of the dll file.\par
+**************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test execution, please wait...\par
+Passed   AreEqualTest\par
+Passed   AreEqualsCaseSensitiveTest\par
+Passed   AreNotEqualTest\par
+Passed   AreSameTest\par
+Passed   AreNotSameTest\par
+Passed   IsInstanceOfTypeTest\par
+Passed   IsNullTest\par
+Passed   FileNameDoesExists\par
+Passed   FileNameDoesExistsUsingDeploymentItem\par
+Passed   SimulateTimeout\par
+Failed   FileNameDoesExistsSimpleMessage\par
+Error Message:\par
+ Assert.IsFalse failed. File Does NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsSimpleMessage() in C:\\User\par
+s\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClasses\\MyCl\par
+assesTest\\FileProcessTest.cs:line 127\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Failed   FileNameDoesExistsMessageWithFormatting\par
+Error Message:\par
+ Assert.IsFalse failed. File 'C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt' Does\par
+NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsMessageWithFormatting() in\par
+ C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClas\par
+ses\\MyClassesTest\\FileProcessTest.cs:line 139\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Skipped  FileNameDoesNotExists\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch\par
+Passed   ContainsTest\par
+Passed   StartsWithTest\par
+Passed   IsAllLowercaseTest\par
+Passed   IsNotAllLowerCaseTest\par
+Passed   CreatePerson_OfTypeEmployeeTest\par
+Passed   GetEmployeesTest\par
+Passed   IsCollectionOfTypeSupervisorsAndEmployeeTest\par
+Passed   DoEmployeesExistsTest\par
+\par
+Total tests: 23. Passed: 20. Failed: 2. Skipped: 1.\par
+Test Run Failed.\par
+Test execution time: 5.8676 Seconds\par
+\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>\par
+************************************************************************\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\par
+Logging and Logging to a .trx file:\par
+use /Listloggers arfument to our command: this will show you all the installed loggers that you have on that machine.\par
+************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console /ListLoggers\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+The following Test Logger Add-Ins are available:\par
+Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameLogger\par
+        Uri: logger://Microsoft/TestPlatform/Extensions/Blame/v1\par
+        FriendlyName: Blame\par
+Microsoft.VisualStudio.TestPlatform.Extensions.TrxLogger.TrxLogger\par
+        Uri: logger://Microsoft/TestPlatform/TrxLogger/v1\par
+        FriendlyName: Trx\par
+**************************************************************************\par
+to use trx logger, use the following:\par
+*************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /Logger:trx\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test execution, please wait...\par
+Passed   AreEqualTest\par
+Passed   AreEqualsCaseSensitiveTest\par
+Passed   AreNotEqualTest\par
+Passed   AreSameTest\par
+Passed   AreNotSameTest\par
+Passed   IsInstanceOfTypeTest\par
+Passed   IsNullTest\par
+Passed   FileNameDoesExists\par
+Passed   FileNameDoesExistsUsingDeploymentItem\par
+Passed   SimulateTimeout\par
+Failed   FileNameDoesExistsSimpleMessage\par
+Error Message:\par
+ Assert.IsFalse failed. File Does NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsSimpleMessage() in C:\\User\par
+s\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClasses\\MyCl\par
+assesTest\\FileProcessTest.cs:line 127\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Failed   FileNameDoesExistsMessageWithFormatting\par
+Error Message:\par
+ Assert.IsFalse failed. File 'C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt' Does\par
+NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsMessageWithFormatting() in\par
+ C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClas\par
+ses\\MyClassesTest\\FileProcessTest.cs:line 139\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Skipped  FileNameDoesNotExists\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch\par
+Passed   ContainsTest\par
+Passed   StartsWithTest\par
+Passed   IsAllLowercaseTest\par
+Passed   IsNotAllLowerCaseTest\par
+Passed   CreatePerson_OfTypeEmployeeTest\par
+Passed   GetEmployeesTest\par
+Passed   IsCollectionOfTypeSupervisorsAndEmployeeTest\par
+Passed   DoEmployeesExistsTest\par
+Results File: C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_T\par
+esting\\MyClasses\\MyClassesTest\\bin\\Debug\\TestResults\\mohit_WIN-3JNNPQMF33S_2018-\par
+12-01_18_37_20.trx\par
+\par
+Total tests: 23. Passed: 20. Failed: 2. Skipped: 1.\par
+Test Run Failed.\par
+Test execution time: 5.2875 Seconds\par
+**********************************************************************************\par
+You can watch the generated trx file by opening it in Visual Studio.\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\par
+Run a Specific test:\par
+you can use a '/TestCaseFilter:"Name=xxx"' option. In it you can provide specific test name that you want to run.\par
+*******************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /TestCaseFilter:"Nam\par
+e=FileNameDoesExists"\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test execution, please wait...\par
+Passed   FileNameDoesExists\par
+\par
+Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.\par
+Test Run Successful.\par
+Test execution time: 1.0541 Seconds\par
+******************************************************************************\par
+You can see, it runs the one specific test.\par
+\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\par
+Run tests based on matching Names:\par
+for this we have to :\par
+1) Use /Tests argument\par
+2) pass in partial test name.\par
+3) Matches on all tests that contain maching string\par
+*****************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /Tests:FileName\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test discovery, please wait...\par
+Passed   FileNameDoesExists\par
+Passed   FileNameDoesExistsUsingDeploymentItem\par
+Failed   FileNameDoesExistsSimpleMessage\par
+Error Message:\par
+ Assert.IsFalse failed. File Does NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsSimpleMessage() in C:\\User\par
+s\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClasses\\MyCl\par
+assesTest\\FileProcessTest.cs:line 127\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Failed   FileNameDoesExistsMessageWithFormatting\par
+Error Message:\par
+ Assert.IsFalse failed. File 'C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt' Does\par
+NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsMessageWithFormatting() in\par
+ C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClas\par
+ses\\MyClassesTest\\FileProcessTest.cs:line 139\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Skipped  FileNameDoesNotExists\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch\par
+\par
+Total tests: 7. Passed: 4. Failed: 2. Skipped: 1.\par
+Test Run Failed.\par
+Test execution time: 0.7624 Seconds\par
+***************************************************************************\par
+to search for more than one word:\par
+***************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /Tests:exist,lowerca\par
+se\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test discovery, please wait...\par
+Passed   FileNameDoesExists\par
+Passed   FileNameDoesExistsUsingDeploymentItem\par
+Failed   FileNameDoesExistsSimpleMessage\par
+Error Message:\par
+ Assert.IsFalse failed. File Does NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsSimpleMessage() in C:\\User\par
+s\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClasses\\MyCl\par
+assesTest\\FileProcessTest.cs:line 127\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Failed   FileNameDoesExistsMessageWithFormatting\par
+Error Message:\par
+ Assert.IsFalse failed. File 'C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt' Does\par
+NOT Exist.\par
+Stack Trace:\par
+   at MyClassesTest.FileProcessTest.FileNameDoesExistsMessageWithFormatting() in\par
+ C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClas\par
+ses\\MyClassesTest\\FileProcessTest.cs:line 139\par
+\par
+Standard Output Messages:\par
+\par
+\par
+TestContext Messages:\par
+Creating File: C:\\Users\\mohit\\AppData\\Roaming\\TestFile.txt\par
+\par
+\par
+Skipped  FileNameDoesNotExists\par
+Passed   IsAllLowercaseTest\par
+Passed   IsNotAllLowerCaseTest\par
+Passed   DoEmployeesExistsTest\par
+\par
+Total tests: 8. Passed: 5. Failed: 2. Skipped: 1.\par
+Test Run Failed.\par
+Test execution time: 0.6033 Seconds\par
+***************************************************************************\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\par
+Run Tests based on attributes:\par
+We can use /TestCaseFilter argument to:\par
+1) Pass in TestCategory, Priority, Name\par
+2) TestCaseFilter:"Attribute=value"\par
+*************************************************************************\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /TestCaseFilter:"pri\par
+ority=1"\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test execution, please wait...\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException\par
+Passed   FileNameNullOrEmpty_ThrowsArgumentNullException_UsingTryCatch\par
+\par
+Total tests: 2. Passed: 2. Failed: 0. Skipped: 0.\par
+Test Run Successful.\par
+Test execution time: 1.0112 Seconds\par
+///////////////////////////////////////////////////////////////////////////////////////\par
+C:\\Users\\mohit\\Documents\\Unit Testing\\Pluralsight_Basics_of_Unit_Testing\\MyClass\par
+es\\MyClassesTest\\bin\\Debug>vstest.console MyClassesTest.dll /TestCaseFilter:"Tes\par
+tCategory=NoException"\par
+Microsoft (R) Test Execution Command Line Tool Version 15.7.2\par
+Copyright (c) Microsoft Corporation.  All rights reserved.\par
+\par
+Starting test execution, please wait...\par
+Passed   FileNameDoesExists\par
+Skipped  FileNameDoesNotExists\par
+\par
+Total tests: 2. Passed: 1. Failed: 0. Skipped: 1.\par
+Test Run Successful.\par
+Test execution time: 0.7675 Seconds\par
+******************************************************************************\par
+\par
+\par
+}
+ 
